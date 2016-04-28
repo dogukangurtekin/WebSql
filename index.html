@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>de</title>
+
+<style type="text/css">
+    img{width: 65px;height: 68px;}
+    body{background-color: #ffa7a3;overflow-x: hidden;overflow-y: hidden;height: 100%;width: 100%;}
+</style>
+<body>
+
+<br><br><br><br><br><br><br>
+<div style="border-radius: 400px;width: 400px ;height: 400px;margin: 0px auto 0px auto;position: relative;background-color: aquamarine;">
+    <div style="width:100px;height: 120px;float:left;position: absolute;top: 120px;left:-40px;"><img id="b" class="bos" src="resim/Ananas.png" rel="ananas"/></div>
+    <div style="width:100px;height: 120px;float:left;position: absolute;top: 250px;left: 0px;"><img id="d" class="bos" src="resim/Armut.png" rel="armut"/></div>
+    <div style="width:100px;height: 120px;float:left;"><img id="g" class="bos" src="resim/elma.png" rel="elma"/></div>
+    <div style="width:100px;height: 120px;float:left;position: absolute;top: -40px;left: 150px"><img id="h" class="bos" src="resim/Portakal.png" rel="portakal"/></div>
+    <div style="width:100px;height: 120px;float:right;position: absolute;top: 120px;right: -40px;"><img id="a" class="dolu" src="resim/Armut.png" rel="armut"/></div>
+    <div style="width:100px;height: 120px;float:left;position: absolute;top: 290px;right: 150px;"><img id="c" class="dolu" src="resim/Ananas.png" rel="ananas"/></div>
+    <div style="width:100px;height: 120px;float:left;position: absolute;top: 250px;right: 0px;"><img id="e" class="dolu" src="resim/elma.png" rel="elma"/></div>
+    <div style="width:100px;height: 120px;float:right;position: absolute;top: 10px;right: -10px;"><img id="f" class="dolu" src="resim/Portakal.png" rel="portakal"/></div>
+</div>
+<div style="position: absolute;top:-5px;left: 60px;"><img src="ico/anasayfa.png" style="width: 64px;height: 64px; cursor:pointer" onclick="yon()"></div>
+<div style="position: absolute;top:5px;left: 5px;"><img src="ico/settt.png" style="width: 54px;height: 54px; cursor:pointer" onclick="yon2()"> </div>
+<input type="button" value="websql'e git" onclick="git()">
+<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $( ".dolu").draggable({ revert: true });
+        $( ".bos").droppable({
+            accept: ".dolu",
+            drop: function( event, ui ) {
+                var suruklenen = $('#'+ui.draggable.prop('id')).attr('rel');
+                var eslesen = $(this).attr('rel');
+                if(suruklenen===eslesen){
+                    $(document).find('img[rel='+suruklenen+']').fadeOut(1000);
+                    $(document).find('img[rel='+eslesen+']').fadeOut(1000);
+                }
+            }
+        });
+    });
+   function git() {
+       window.location.href="websql.html";
+   }
+</script>
+</body>
+</html>
